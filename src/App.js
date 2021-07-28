@@ -1,11 +1,11 @@
 import Tab from "./components/Tab"
-import Demo from "./Demo"
 
 const App = () => {
   return (
     <div>
-      {/* <Tab /> */}
-      <Demo />
+      <Tab />
+      
+      
     </div>
   )
 }
