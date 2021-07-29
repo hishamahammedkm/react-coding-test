@@ -3,10 +3,18 @@
     position: relative;
     width: 50px;
     height: 30px;
-    background-color: greenyellow;
+    background-color: green;
     margin: 10px;
     cursor: pointer;
     
+}
+.activeTab{
+    position: relative;
+    width: 50px;
+    height: 30px;
+    background-color: rgb(216, 30, 30);
+    margin: 10px;
+    cursor: pointer;
 }
 .btn{
     display: none;
@@ -22,3 +30,6 @@
     display: inline-block;
   }
 
+.activeTab:hover .btn {
+    display: inline-block;
+  }

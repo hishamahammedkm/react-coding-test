@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 
 
 const Tab = ()=> {
+  const [activeTab, setActiveTab] = useState()
   const dispatch = useDispatch();
   const products = useSelector((state) => state.allProducts.products);
   const product = useSelector((state) => state.product);
@@ -63,7 +64,7 @@ const Tab = ()=> {
                     <Draggable key={product.id} draggableId={product.title} index={index}>
                       {(provided) => (
                         <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                         <SingleTab key={product.id} product={product} />
+                         <SingleTab key={product.id} product={product} activeTab={activeTab} setActiveTab={setActiveTab} />
                         
                         </li>
                       )}
@@ -78,6 +79,15 @@ const Tab = ()=> {
         <button className='addTab' onClick={add}>➕</button>
         
      
+    </div>
+    <div className='chevrons'>
+      {activeTab !== products[0]?.id &&  <div>
+       <h1>⬅</h1>
+      </div>}
+      {activeTab != products[products?.length-1]?.id && <div>
+      <h1>➡</h1>
+      </div>}
+
     </div>
     <div className="tab-content">
     {

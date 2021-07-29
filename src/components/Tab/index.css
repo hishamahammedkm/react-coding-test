@@ -23,7 +23,8 @@ li{
 
 .main{
   background-color: gray;
-  max-width: 400px;
+  max-width: 700px;
+  overflow-x: scroll;
 }
 
 .tabs-container{
@@ -42,4 +43,9 @@ li{
   height: 30px;
   margin-top: 40px;
   margin-left: 20px;
+}
+.chevrons{
+  display: flex;
+  
+  
 }

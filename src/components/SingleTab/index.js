@@ -4,13 +4,17 @@ import { selectedProduct,deleteTab} from '../../redux/actions/productsActions';
 import { useState } from 'react';
 import Modal from '../Model';
 
-const SingleTab = ({product}) => {
+const SingleTab = ({product,activeTab,setActiveTab}) => {
     const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch();
-    const [state, setstate] = useState(false)
+    
+    const changeColor =(id)=>{
+       setActiveTab(id)
+        
+    }
     
     return (
-        <div className='tab' >
+        <div onClick={()=>changeColor(product.id)} className={activeTab === product.id ? 'activeTab':'tab'} >
             {
                 showModal && (<Modal show={showModal} setShowModal={setShowModal} product={product}  />)}
             <span onClick={()=>dispatch(selectedProduct(product))}>Tab {product.id}</span>
