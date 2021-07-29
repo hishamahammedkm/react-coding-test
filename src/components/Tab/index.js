@@ -6,6 +6,7 @@ import './index.css'
 import { fetchProducts,fetchProduct } from "../../redux/actions/productsActions";
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import Modal from '../Model';
 
 const finalSpaceCharacters = [
   {
@@ -34,7 +35,7 @@ const Tab = ()=> {
   // console.log(products);
  
   const add = ()=>{
-      const last = products[products.length-1]
+      const last = products[products.length-1] || 0
       if (products.length >=10 || last.id >=10 ){
           return
       }
@@ -67,6 +68,7 @@ const Tab = ()=> {
 
   return (
     <div className="Tabs">
+      
     
     <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="characters" direction="horizontal">
