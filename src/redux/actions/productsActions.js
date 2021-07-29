@@ -32,6 +32,13 @@ export const deleteTab = (tab) => {
   };
 };
 
+export const setLoading = (value) => {
+  return {
+    type: ActionTypes.LOADING,
+    payload:value
+  };
+};
+
 
 
 

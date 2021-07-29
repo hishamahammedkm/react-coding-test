@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import SingleTab from '../SingleTab';
 import './index.css'
-import { fetchProducts,fetchProduct } from "../../redux/actions/productsActions";
+import { fetchProducts,fetchProduct, setLoading } from "../../redux/actions/productsActions";
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -13,17 +13,21 @@ const Tab = ()=> {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.allProducts.products);
   const product = useSelector((state) => state.product);
-   console.log(product,'------');
+  const isLoading = useSelector((state) => state.allProducts.isLoading);
   // console.log(products);
  
   const add = ()=>{
+    dispatch(setLoading(true))
+    if(isLoading) return
+
+      console.log('isloading==',isLoading);
       const last = products[products.length-1] || 0
       if (products.length >=10 || last.id >=10 ){
           return
       }
       
       
-      dispatch(fetchProduct(last.id+1))
+       dispatch(fetchProduct(last.id+1))
 
   }
  
@@ -76,7 +80,8 @@ const Tab = ()=> {
             )}
           </Droppable>
         </DragDropContext>
-        <button className='addTab' onClick={add}>➕</button>
+        {products?.length >0 &&<button className='addTab' onClick={add}>➕</button>
+}
         
      
     </div>
