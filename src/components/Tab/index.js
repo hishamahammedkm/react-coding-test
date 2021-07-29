@@ -1,4 +1,3 @@
-import { getDefaultNormalizer } from '@testing-library/react';
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import SingleTab from '../SingleTab';
@@ -6,26 +5,8 @@ import './index.css'
 import { fetchProducts,fetchProduct } from "../../redux/actions/productsActions";
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Modal from '../Model';
 
-const finalSpaceCharacters = [
-  {
-    id: '1',
-    title: 'Hisham',
-    thumb: '/images/gary.png'
-  },
-  {
-    id: '2',
-    title: 'Anu',
-    thumb: '/images/cato.png'
-  },
-  {
-    id: '3',
-    title: 'Affnu',
-    thumb: '/images/cato.png'
-  },
 
-]
 
 const Tab = ()=> {
   const dispatch = useDispatch();
@@ -45,7 +26,7 @@ const Tab = ()=> {
 
   }
  
-    const [characters, updateCharacters] = useState(finalSpaceCharacters);
+    const [characters, updateCharacters] = useState(products);
     useEffect(() => {
       updateCharacters(products)
    
@@ -67,6 +48,9 @@ const Tab = ()=> {
 }, [])
 
   return (
+    <div className='main'>
+
+    
     <div className="Tabs">
       
     
@@ -91,21 +75,23 @@ const Tab = ()=> {
             )}
           </Droppable>
         </DragDropContext>
-        <button onClick={add}>Add</button>
-        <div className="tab-content">
-               {
-                   product.id && (
-                    <div>
-                        <h3>Tab{product?.id} content</h3>
-                        <p>{product?.title}</p>
-                    </div>
-                     
-                   )
-               }         
-                
-            </div>
+        <button className='addTab' onClick={add}>➕</button>
+        
      
     </div>
+    <div className="tab-content">
+    {
+        product.id && (
+         <div>
+             <h3>Tab{product?.id} content</h3>
+             <p>{product?.title}</p>
+         </div>
+          
+        )
+    }         
+     
+ </div>
+ </div>
   );
 }
 

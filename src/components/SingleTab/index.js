@@ -7,6 +7,7 @@ import Modal from '../Model';
 const SingleTab = ({product}) => {
     const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch();
+    const [state, setstate] = useState(false)
     
     return (
         <div className='tab' >

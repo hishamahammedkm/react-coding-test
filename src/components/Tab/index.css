@@ -12,6 +12,7 @@ li{
   }
   
   .characters li {
+    
     display: flex;
     align-items: center;
     border: solid 2px #d0d0d0;
@@ -19,9 +20,26 @@ li{
     padding: .5em .8em .5em .5em;
     margin-bottom: 1em;
   }
+
+.main{
+  background-color: gray;
+  max-width: 400px;
+}
+
 .tabs-container{
     display: flex;
 }
 .tabs{
     display: flex;
+}
+.Tabs{
+  display: flex;
+}
+.addTab{
+  background-color: aqua;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  margin-top: 40px;
+  margin-left: 20px;
 }
